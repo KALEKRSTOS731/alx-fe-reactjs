@@ -17,3 +17,16 @@ mx-auto, my-20
 rounded-lg,
 shadow-lg
 }
+.img {
+"rounded-full",
+"w-36 h-36","mx-auto"
+}
+h1 {
+text-xl,
+text-blue-800,
+my-4
+}
+p {
+text-gray-600,
+  text-base
+}
