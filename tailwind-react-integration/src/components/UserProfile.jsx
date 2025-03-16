@@ -25,7 +25,8 @@ shadow-lg,
 }
 .img {
 "rounded-full",
-"w-36 h-36","mx-auto"
+"w-36 h-36","mx-auto",
+  "text-lg", "md:text-xl", "text-sm"
 }
 h1 {
 text-xl,
