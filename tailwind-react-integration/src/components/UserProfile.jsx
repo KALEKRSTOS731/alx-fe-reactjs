@@ -27,14 +27,15 @@ shadow-lg,
 "rounded-full",
 "w-36 h-36","mx-auto",
   "text-lg", "md:text-xl", "text-sm",
-  "sm:w-24", "sm:h-24", "md:w-36", "md:h-36"
+  "sm:w-24", "sm:h-24", "md:w-36", "md:h-36",
+  "hover:scale-110", "transition-transform", "duration-300", "ease-in-out"
 }
 h1 {
 text-xl,
 text-blue-800,
-my-4
+my-4,hover:text-blue-500
 }
 p {
 text-gray-600,
-  text-base
+  text-base,hover:text-blue-500
 }
