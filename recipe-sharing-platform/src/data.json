@@ -1,26 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Spaghetti Carbonara",
-    "summary": "A classic Italian pasta dish with eggs, cheese, and bacon.",
-    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    "ingredients": ["spaghetti", "eggs", "parmesan cheese", "bacon"],
-    "instructions": "Cook spaghetti. Mix eggs and cheese. Combine with cooked bacon and spaghetti."
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/150"
   },
   {
     "id": 2,
-    "name": "Chicken Curry",
-    "summary": "A flavorful curry made with chicken, spices, and coconut milk.",
-    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    "ingredients": ["chicken", "curry powder", "coconut milk", "onions"],
-    "instructions": "Cook chicken with onions. Add curry powder and coconut milk. Simmer."
-  },
-  {
-    "id": 3,
-    "name": "Chocolate Cake",
-    "summary": "A rich and decadent chocolate cake for dessert lovers.",
-    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-    "ingredients": ["flour", "sugar", "cocoa powder", "eggs", "butter"],
-    "instructions": "Mix ingredients. Bake at 350°F for 30 minutes. Enjoy!"
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://via.placeholder.com/150"
   }
 ]
