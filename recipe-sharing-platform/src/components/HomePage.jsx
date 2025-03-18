@@ -1,40 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import './HomePage.css';
 
 const HomePage = () => {
-  // State to hold the recipe data
   const [recipes, setRecipes] = useState([]);
 
-  // useEffect to load the data when the component mounts
   useEffect(() => {
-    // Fetch the data from the data.json file
     fetch('/data.json')
-      .then((response) => response.json()) // Parse the JSON data
-      .then((data) => setRecipes(data)) // Set the data to state
-      .catch((error) => console.error('Error loading recipes:', error)); // Handle errors
-  }, []); // Empty dependency array ensures this runs only once on mount
+      .then((response) => response.json())
+      .then((data) => setRecipes(data))
+      .catch((error) => console.error('Error loading recipes:', error));
+  }, []);
 
   return (
-    <div className="home-page">
-      <h1>Welcome to the Home Page</h1>
-      <p>Here are some delicious recipes:</p>
+    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-center text-gray-900 mb-8">
+          Welcome to the Home Page
+        </h1>
+        <p className="text-lg text-center text-gray-600 mb-12">
+          Here are some delicious recipes for you to try:
+        </p>
 
-      {/* Display the recipes */}
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id}>
-            <h2>{recipe.name}</h2>
-            <h3>Ingredients:</h3>
-            <ul>
-              {recipe.ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
-              ))}
-            </ul>
-            <h3>Instructions:</h3>
-            <p>{recipe.instructions}</p>
-          </li>
-        ))}
-      </ul>
+        {/* Recipe Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recipes.map((recipe) => (
+            <div
+              key={recipe.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              {/* Recipe Image */}
+              <img
+                src={recipe.image}
+                alt={recipe.name}
+                className="w-full h-48 object-cover"
+              />
+
+              {/* Recipe Content */}
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+                  {recipe.name}
+                </h2>
+                <p className="text-gray-600">{recipe.summary}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
