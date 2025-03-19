@@ -1,6 +1,5 @@
 // src/components/AddRecipeForm.jsx
 import React, { useState } from 'react';
-import './AddRecipeForm.css'; // Import the CSS file
 
 const AddRecipeForm = () => {
     // State to manage form inputs
@@ -76,52 +75,70 @@ const AddRecipeForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="form-container">
-            <h2 className="form-title">Add a New Recipe</h2>
+        <form
+            onSubmit={handleSubmit}
+            className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md" // Tailwind classes for container
+        >
+            <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Add a New Recipe</h2>
 
             {/* Recipe Title */}
-            <div className="form-group">
-                <label htmlFor="recipe-title" className="form-label">Recipe Title:</label>
+            <div className="mb-4">
+                <label htmlFor="recipe-title" className="block text-sm font-medium text-gray-700">
+                    Recipe Title:
+                </label>
                 <input
                     type="text"
                     id="recipe-title"
                     value={recipeTitle}
                     onChange={(e) => setRecipeTitle(e.target.value)}
-                    className="form-input"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
-                {errors.recipeTitle && <p className="error">{errors.recipeTitle}</p>}
+                {errors.recipeTitle && (
+                    <p className="text-sm text-red-500 mt-1">{errors.recipeTitle}</p>
+                )}
             </div>
 
             {/* Ingredients */}
-            <div className="form-group">
-                <label htmlFor="ingredients" className="form-label">Ingredients:</label>
+            <div className="mb-4">
+                <label htmlFor="ingredients" className="block text-sm font-medium text-gray-700">
+                    Ingredients:
+                </label>
                 <textarea
                     id="ingredients"
                     value={ingredients}
                     onChange={(e) => setIngredients(e.target.value)}
-                    rows="10"
-                    cols="50"
-                    className="form-textarea"
+                    rows="5"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
-                {errors.ingredients && <p className="error">{errors.ingredients}</p>}
+                {errors.ingredients && (
+                    <p className="text-sm text-red-500 mt-1">{errors.ingredients}</p>
+                )}
             </div>
 
             {/* Preparation Steps */}
-            <div className="form-group">
-                <label htmlFor="preparation-steps" className="form-label">Preparation Steps:</label>
+            <div className="mb-6">
+                <label htmlFor="preparation-steps" className="block text-sm font-medium text-gray-700">
+                    Preparation Steps:
+                </label>
                 <textarea
                     id="preparation-steps"
                     value={preparationSteps}
                     onChange={(e) => setPreparationSteps(e.target.value)}
-                    rows="10"
-                    cols="50"
-                    className="form-textarea"
+                    rows="5"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                 />
-                {errors.preparationSteps && <p className="error">{errors.preparationSteps}</p>}
+                {errors.preparationSteps && (
+                    <p className="text-sm text-red-500 mt-1">{errors.preparationSteps}</p>
+                )}
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="form-button">Submit Recipe</button>
+            <button
+                type="submit"
+                className="w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-md shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            >
+                Submit Recipe
+            </button>
         </form>
     );
 };
