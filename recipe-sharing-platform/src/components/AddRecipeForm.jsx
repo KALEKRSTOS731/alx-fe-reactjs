@@ -1,4 +1,4 @@
-// src/components/AddRecipeForm.js
+// src/components/AddRecipeForm.jsx
 import React, { useState } from 'react';
 
 const AddRecipeForm = () => {
@@ -7,21 +7,71 @@ const AddRecipeForm = () => {
     const [ingredients, setIngredients] = useState('');
     const [preparationSteps, setPreparationSteps] = useState('');
 
+    // State to manage errors
+    const [errors, setErrors] = useState({
+        recipeTitle: '',
+        ingredients: '',
+        preparationSteps: '',
+    });
+
+    // Validate the form inputs
+    const validate = () => {
+        const newErrors = {
+            recipeTitle: '',
+            ingredients: '',
+            preparationSteps: '',
+        };
+
+        let isValid = true;
+
+        // Validate Recipe Title
+        if (!recipeTitle.trim()) {
+            newErrors.recipeTitle = 'Recipe title is required.';
+            isValid = false;
+        }
+
+        // Validate Ingredients
+        if (!ingredients.trim()) {
+            newErrors.ingredients = 'Ingredients are required.';
+            isValid = false;
+        }
+
+        // Validate Preparation Steps
+        if (!preparationSteps.trim()) {
+            newErrors.preparationSteps = 'Preparation steps are required.';
+            isValid = false;
+        }
+
+        // Update the errors state
+        setErrors(newErrors);
+
+        // Return whether the form is valid
+        return isValid;
+    };
+
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission behavior
 
-        // Log the form data (you can replace this with an API call or other logic)
-        console.log({
-            recipeTitle,
-            ingredients,
-            preparationSteps,
-        });
+        // Validate the form
+        if (validate()) {
+            // Log the form data (you can replace this with an API call or other logic)
+            console.log({
+                recipeTitle,
+                ingredients,
+                preparationSteps,
+            });
 
-        // Clear the form after submission
-        setRecipeTitle('');
-        setIngredients('');
-        setPreparationSteps('');
+            // Clear the form after submission
+            setRecipeTitle('');
+            setIngredients('');
+            setPreparationSteps('');
+            setErrors({
+                recipeTitle: '',
+                ingredients: '',
+                preparationSteps: '',
+            });
+        }
     };
 
     return (
@@ -36,8 +86,8 @@ const AddRecipeForm = () => {
                     id="recipe-title"
                     value={recipeTitle}
                     onChange={(e) => setRecipeTitle(e.target.value)}
-                    required
                 />
+                {errors.recipeTitle && <p className="error">{errors.recipeTitle}</p>}
             </div>
 
             {/* Ingredients */}
@@ -49,8 +99,8 @@ const AddRecipeForm = () => {
                     onChange={(e) => setIngredients(e.target.value)}
                     rows="10"
                     cols="50"
-                    required
                 />
+                {errors.ingredients && <p className="error">{errors.ingredients}</p>}
             </div>
 
             {/* Preparation Steps */}
@@ -62,8 +112,8 @@ const AddRecipeForm = () => {
                     onChange={(e) => setPreparationSteps(e.target.value)}
                     rows="10"
                     cols="50"
-                    required
                 />
+                {errors.preparationSteps && <p className="error">{errors.preparationSteps}</p>}
             </div>
 
             {/* Submit Button */}
