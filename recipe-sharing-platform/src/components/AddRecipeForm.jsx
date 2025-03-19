@@ -76,52 +76,53 @@ const AddRecipeForm = () => {
     };
 
     return (
-        <div className="form-container">
-            <form onSubmit={handleSubmit} className="recipe-form">
-                <h2>Add a New Recipe</h2>
+        <form onSubmit={handleSubmit} className="recipe-form">
+            <h2 className="form-title">Add a New Recipe</h2>
 
-                {/* Recipe Title */}
-                <div className="form-group">
-                    <label htmlFor="recipe-title">Recipe Title:</label>
-                    <input
-                        type="text"
-                        id="recipe-title"
-                        value={recipeTitle}
-                        onChange={(e) => setRecipeTitle(e.target.value)}
-                    />
-                    {errors.recipeTitle && <p className="error">{errors.recipeTitle}</p>}
-                </div>
+            {/* Recipe Title */}
+            <div className="form-group">
+                <label htmlFor="recipe-title" className="form-label">Recipe Title:</label>
+                <input
+                    type="text"
+                    id="recipe-title"
+                    value={recipeTitle}
+                    onChange={(e) => setRecipeTitle(e.target.value)}
+                    className="form-input"
+                />
+                {errors.recipeTitle && <p className="error">{errors.recipeTitle}</p>}
+            </div>
 
-                {/* Ingredients */}
-                <div className="form-group">
-                    <label htmlFor="ingredients">Ingredients:</label>
-                    <textarea
-                        id="ingredients"
-                        value={ingredients}
-                        onChange={(e) => setIngredients(e.target.value)}
-                        rows="10"
-                        cols="50"
-                    />
-                    {errors.ingredients && <p className="error">{errors.ingredients}</p>}
-                </div>
+            {/* Ingredients */}
+            <div className="form-group">
+                <label htmlFor="ingredients" className="form-label">Ingredients:</label>
+                <textarea
+                    id="ingredients"
+                    value={ingredients}
+                    onChange={(e) => setIngredients(e.target.value)}
+                    rows="10"
+                    cols="50"
+                    className="form-textarea"
+                />
+                {errors.ingredients && <p className="error">{errors.ingredients}</p>}
+            </div>
 
-                {/* Preparation Steps */}
-                <div className="form-group">
-                    <label htmlFor="preparation-steps">Preparation Steps:</label>
-                    <textarea
-                        id="preparation-steps"
-                        value={preparationSteps}
-                        onChange={(e) => setPreparationSteps(e.target.value)}
-                        rows="10"
-                        cols="50"
-                    />
-                    {errors.preparationSteps && <p className="error">{errors.preparationSteps}</p>}
-                </div>
+            {/* Preparation Steps */}
+            <div className="form-group">
+                <label htmlFor="preparation-steps" className="form-label">Preparation Steps:</label>
+                <textarea
+                    id="preparation-steps"
+                    value={preparationSteps}
+                    onChange={(e) => setPreparationSteps(e.target.value)}
+                    rows="10"
+                    cols="50"
+                    className="form-textarea"
+                />
+                {errors.preparationSteps && <p className="error">{errors.preparationSteps}</p>}
+            </div>
 
-                {/* Submit Button */}
-                <button type="submit" className="submit-button">Submit Recipe</button>
-            </form>
-        </div>
+            {/* Submit Button */}
+            <button type="submit" className="submit-button">Submit Recipe</button>
+        </form>
     );
 };
 
