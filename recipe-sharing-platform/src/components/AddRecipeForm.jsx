@@ -76,7 +76,7 @@ const AddRecipeForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="recipe-form">
+        <form onSubmit={handleSubmit} className="form-container">
             <h2 className="form-title">Add a New Recipe</h2>
 
             {/* Recipe Title */}
@@ -121,7 +121,7 @@ const AddRecipeForm = () => {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="submit-button">Submit Recipe</button>
+            <button type="submit" className="form-button">Submit Recipe</button>
         </form>
     );
 };
