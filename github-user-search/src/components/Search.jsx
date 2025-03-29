@@ -21,7 +21,7 @@ const Search = ({ onSearch }) => {
     if (data) {
       setUserData(data);
     } else {
-      setError("Looks like we can't find the user");
+      setError("Looks like we cant find the user");
     }
   };
 
